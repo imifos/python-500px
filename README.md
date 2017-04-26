@@ -3,13 +3,16 @@
 
 
 
+
+***
+
+***
+
 # python-500px
 
 A Python client for 500px API ( https://github.com/500px/api-documentation ).
 
 this library was inspired by tweepy(https://github.com/tweepy/tweepy), python-instagram(https://github.com/Instagram/python-instagram)
-
-***
 
 ## Installation
     pip install python-500px
