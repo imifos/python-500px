@@ -2,10 +2,12 @@
 
 A Python script that generates a gallery/thumbnail page from your 500px.com account.
 
-It's based on the ```500px/python-500px``` project, extends a bit the base library and adds a site generator. All
+It's based on the ```500px/python-500px``` project (*), extends a bit the base library and adds a site generator. All
 modifications compared to the original library are located in the ```sitebuilder``` directory,
 everything else is untouched. All code is located in the
 file ```sitebuilder/sitebuilder.py``` file, which also contains the extended API interface class ```FiveHundredPXAPIEx```.
+
+(*) Note: development of the library does not continue at ```500px/python-500px```, but here: ```akirahrkw/python-500px```.
 
 ## Installation and Usage
 
