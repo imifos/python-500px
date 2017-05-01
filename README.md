@@ -15,7 +15,7 @@ file ```sitebuilder/sitebuilder.py``` file, which also contains the extended API
 4) Modify ```sitebuilder.py```: Configuration (4 constants at the top, out_photo_description(), etc.). No magic, just have a look.
 5) Run the script, potentially using a cron job on your web server
 
-The script creates a ``out``` directory at the place specified in ```_BASEDIR``` Everything will be there.
+The script creates an ```out``` directory at the place specified in ```_BASEDIR```. Everything will be there.
 
 ## Requires
   * simplejson (from original project)
