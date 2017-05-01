@@ -1,102 +1,27 @@
-# python-500px-site-builder
+# python-500px-sitebuilder
 
+A Python script that generates a gallery/thumbnail page from your 500px.com account.
 
+It's based on the ```500px/python-500px``` project, extends a bit the base library and adds a site generator. All
+modifications compared to the original library are located in the ```sitebuilder``` directory,
+everything else is untouched. All code is located in the
+file ```sitebuilder/sitebuilder.py``` file, which also contains the extended API interface class ```FiveHundredPXAPIEx```.
 
+## Installation and Usage
 
+1) Clone this repo into your github account.
+2) Get your API key at [https://500px.com/settings/applications]
+3) Modify ```prefix.html``` and ```suffix.html``` to build your personal layout.
+4) Modify ```sitebuilder.py```: Configuration (4 constants at the top, out_photo_description(), etc.). No magic, just have a look.
+5) Run the script, potentially using a cron job on your web server
 
-***
-
-***
-
-# python-500px
-
-A Python client for 500px API ( https://github.com/500px/api-documentation ).
-
-this library was inspired by tweepy(https://github.com/tweepy/tweepy), python-instagram(https://github.com/Instagram/python-instagram)
-
-## Installation
-    pip install python-500px
+The script creates a ``out``` directory at the place specified in ```_BASEDIR``` Everything will be there.
 
 ## Requires
-  * simplejson
+  * simplejson (from original project)
 
-## Usage
-	from fivehundredpx.client import FiveHundredPXAPI
-	from fivehundredpx.auth   import *
+## License
 
-	unauthorized_api = FiveHundredPXAPI(handler)
-	unauthorized_api.users_show(consumer_key=CONSUMER_KEY, id='727199')
-	
-	handler = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-	handler.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
-	api = FiveHundredPXAPI(handler)
-	api.users()
+HAVEFUN 1.0
 
-## Authentication
-    please check 500px's authentication document(https://github.com/500px/api-documentation/tree/master/authentication)
-    tests/oauth.py shows how to get request/access token.
-
-    verifier:
-    self.handler.get_authorization_url() # go to this url and get verifier
-    token = self.handler.get_access_token(verifier)
-    token.key, token.secret
-
-    xauth:
-    token = self.handler.get_request_token()
-    self.handler.set_request_token(token.key, token.secret)
-    token = self.handler.get_xauth_access_token(username, password)
-    token.key, token.secret
-
-## Methods
-
-  * api.photos()
-  * api.photos_search()
-  * api.photos_id()
-  * api.photos_post()
-  * api.photos_update()
-  * api.photos_delete()
-  * api.photos_comments()
-  * api.photos_comments_post()
-  * api.photos_favorites()
-  * api.photos_favorite_post()
-  * api.photos_favorite_delete()
-  * api.photos_tags_post()
-  * api.photos_tags_delete()
-  * api.photos_votes()
-  * api.photos_vote_post()
-  * api.upload_photo()
-  * api.users()
-  * api.users_show()
-  * api.users_search()
-  * api.users_friends()
-  * api.users_followers()
-  * api.users_friends_post()
-  * api.users_friends_delete()
-  * api.blogs()
-  * api.blogs_id()
-  * api.blogs_comments()
-  * api.blogs_comments_post()
-  * api.blogs_post()
-  * api.blogs_delete()
-  * api.blogs_update()
-  * api.comments_post()
-  * api.collections()
-  * api.collections_id()
-  * api.collections_post()
-  * api.collections_update()
-  * api.collections_delete()
-
-## Test
-    python tests/oauth.py      [cunsumer_key] [consumer_secret]
-    python tests/blog.py       [cunsumer_key] [consumer_secret] [oauth_token] [oauth_token_secret]
-    python tests/collection.py [cunsumer_key] [consumer_secret] [oauth_token] [oauth_token_secret]
-    python tests/user.py       [cunsumer_key] [consumer_secret] [oauth_token] [oauth_token_secret]
-    python tests/photo.py      [cunsumer_key] [consumer_secret] [oauth_token] [oauth_token_secret]
-    python tests/upload.py     [cunsumer_key] [consumer_secret] [oauth_token] [oauth_token_secret]
-
-[authentication]: https://github.com/500px/api-documentation/tree/master/authentication
-[authorize]: https://github.com/500px/api-documentation/blob/master/authentication/POST_oauth_authorize.md
-[request_token]: https://github.com/500px/api-documentation/blob/master/authentication/POST_oauth_requesttoken.md
-[access_token]: https://github.com/500px/api-documentation/blob/master/authentication/POST_oauth_accesstoken.md
-
-
+MIT (as the original project)
