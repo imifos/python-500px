@@ -18,21 +18,21 @@ class FiveHundredPXAPI(object):
     #### Photo API
     # https://github.com/500px/api-documentation/tree/master/endpoints/photo
     photos 		           = bind_api(path='/photos')
-    photos_search          = bind_api(path='/photos/search', require_auth=True)
+    photos_search          = bind_api(path='/photos/search')
     photos_id 	           = bind_api(path='/photos/{id}', allowed_params=['id'])
-    photos_post            = bind_api(path='/photos', method='POST', require_auth=True)
-    photos_update          = bind_api(path='/photos/{id}', method='PUT', require_auth=True, as_query=False)
+    photos_post            = bind_api(path='/photos', method='POST', require_auth=True, as_query=True)
+    photos_update          = bind_api(path='/photos/{id}', method='PUT', require_auth=True, as_query=True)
     photos_delete          = bind_api(path='/photos/{id}', method='DELETE', allowed_params=['id'],require_auth=True)
     photos_comments        = bind_api(path='/photos/{id}/comments', allowed_params=['id'])
-    photos_comments_post   = bind_api(path='/photos/{id}/comments', method='POST', allowed_params=['id'], require_auth=True)
+    photos_comments_post   = bind_api(path='/photos/{id}/comments', method='POST', allowed_params=['id'], require_auth=True, as_query=True)
     photos_favorites       = bind_api(path='/photos/{id}/favorites', allowed_params=['id'], require_auth=True)
     photos_favorite_post   = bind_api(path='/photos/{id}/favorite', method='POST', allowed_params=['id'], require_auth=True)
     photos_favorite_delete = bind_api(path='/photos/{id}/favorite', method='DELETE', allowed_params=['id'], require_auth=True)
-    photos_tags_post       = bind_api(path='/photos/{id}/tags', method='POST', allowed_params=['id'], require_auth=True)
+    photos_tags_post       = bind_api(path='/photos/{id}/tags', method='POST', allowed_params=['id'], require_auth=True, as_query=True)
     photos_tags_delete     = bind_api(path='/photos/{id}/tags', method='DELETE', allowed_params=['id'], require_auth=True, as_query=True)
     photos_votes           = bind_api(path='/photos/{id}/votes', allowed_params=['id'], require_auth=True)
     photos_vote_post       = bind_api(path='/photos/{id}/vote', method='POST', allowed_params=['id'], require_auth=True, as_query=True)
-    photos_report          = bind_api(path='/photos/{id}/report', method='POST', allowed_params=['id'], require_auth=True)
+    photos_report          = bind_api(path='/photos/{id}/report', method='POST', allowed_params=['id'], require_auth=True, as_query=True)
 
     def upload_photo(self, filename=None,fp=None,file_type=None, **kwargs):
         headers,body = FileUtil.create_body_by_filepath(filename,'file',kwargs) if fp==None else FileUtil.create_body_by_fp(fp, 'file', file_type, kwargs) 
@@ -56,11 +56,11 @@ class FiveHundredPXAPI(object):
     blogs               = bind_api(path='/blogs')
     blogs_id            = bind_api(path='/blogs/{id}', allowed_params=['id'])
     blogs_comments      = bind_api(path='/blogs/{id}/comments', allowed_params=['id'])
-    blogs_comments_post = bind_api(path='/blogs/{id}/comments', require_auth=True, allowed_params=['id'], method='POST')
-    blogs_post          = bind_api(path='/blogs', require_auth=True, method='POST')
-    blogs_update        = bind_api(path='/blogs/{id}', require_auth=True, allowed_params=['id'], method='PUT')
-    blogs_delete        = bind_api(path='/blogs/{id}', require_auth=True, allowed_params=['id'], method='DELETE')
-    
+    # blogs_comments_post = bind_api(path='/blogs/{id}/comments', require_auth=True, allowed_params=['id'], method='POST')
+    # blogs_post          = bind_api(path='/blogs', require_auth=True, method='POST')
+    # blogs_update        = bind_api(path='/blogs/{id}', require_auth=True, allowed_params=['id'], method='PUT')
+    # blogs_delete        = bind_api(path='/blogs/{id}', require_auth=True, allowed_params=['id'], method='DELETE')
+
     #### Comment API
     # https://github.com/500px/api-documentation/tree/master/endpoints/comments
     comments_post = bind_api(path='/comments/{id}/comments', require_auth=True, allowed_params=['id'], method='POST')
