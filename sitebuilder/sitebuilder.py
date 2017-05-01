@@ -13,6 +13,9 @@ License: MIT, Code by @imifos
 https://500px.com/settings/applications
 """
 
+
+
+
 _CONSUMER_KEY="TRALALALAL"
 _CONSUMER_SECRET="SECRET_TRALALLAAAAA"
 _USER_ID="19194355"
@@ -165,11 +168,14 @@ class SiteGenerator(object):
 
         for photo in photos:
 
-            print "     Download thumbnail "+str(photo['id'])+" / "+photo['name']
-
-            f=open(self.imagedir+str(photo['id'])+'.jpg','wb')
-            f.write(urllib.urlopen(photo['image_url']).read())
-            f.close()
+            filename=self.imagedir+str(photo['id'])+'.jpg'
+            if os.path.isfile(filename):
+                print "     Thumbnail already downloaded "+str(photo['id'])+" / "+photo['name']
+            else:
+                print "     Download thumbnail "+str(photo['id'])+" / "+photo['name']
+                f=open(filename,'wb')
+                f.write(urllib.urlopen(photo['image_url']).read())
+                f.close()
 
 
     # Builds the web site in the 'out/' directory
